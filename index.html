@@ -1,0 +1,264 @@
+<html>
+    <head>
+        <title>aDarsh</title>
+        <meta name="viewport" content="width=deice-width, initial-scale=1.0">
+        <link rel="shortcut icon" content="fav.png">
+        <meta name="author" content="Adarsh Chavhan">
+        <meta name="keywords" content="adarshchavhan, adarsh chavhan, adarshchavhan first form">
+        <meta name="description" content="This is the  just simple example of html forms and it is designed and developed by adarsh chavhan">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            /*
+            LOGO COADING
+            */
+            h1{
+                position: fixed;
+                top: 5px;
+                left: 25px;
+                color: #00B2FF;
+                animation: logo 3s ease infinite;
+            }
+            @keyframes logo{
+                0%{ opacity: 1; delay:0.09s;}
+                99%{ opacity: 0; }
+            }
+            .outer{
+                width: 100%;
+                min-height: 100%;
+                max-height: 800px;
+                background: #F1FBFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            /*
+            WELCOME SCREEN
+            */
+            .welcome{
+                width:340px;
+                height: 180px;
+                text-align: center;
+                color: #333;
+            }
+            .welcome .big-text{
+                font-size: 2rem;
+                font-weight: 700;
+            }
+            .welcome p{
+                padding: 20px 0px;
+            }
+            .welcome label{
+                padding: 15px 30px;
+                padding-right: 0px;
+                margin: 120px 0px;
+                background: #00B2FF;
+                color: white;
+                border-radius: 30px;
+                font-size: 14px;
+                box-shadow: 0px 10px 10px #8dddff;
+                transition: 1s all;
+            }
+            .welcome label .i{
+                padding:15px 17px;
+                margin-left: 17px;
+                background-color: #0098da;
+                border-radius: 30px;
+            }
+            .welcome label:hover{
+                box-shadow: 0px 10px 40px #8dddff;
+                text-shadow: 0px 2px 4px white;
+            }
+            .form-btn:checked~ .welcome{
+                transition: 1s all;
+                display: none;
+            }
+            .form-btn{
+                display: none;
+            }
+            .form-btn:checked~ #form{
+                width: 400px;
+                height: auto;
+                padding: 25px 30px;
+                opacity: 1;
+            }
+
+            /*
+            FORM PAGE SCREEN
+            */
+            form{
+                width: 0px;
+                height: 0;
+                opacity: 0;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0px 0px 10px #efefef;
+                position: fixed;
+                z-index: 1;
+                transition: .35s ease-in-out;
+                transition-delay:.2s ;
+                overflow: hidden;
+            }
+            form input{
+                margin: 10px 0px;
+                width: 100%;
+                border: 0px solid;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            form fieldset{
+                padding-top: 0px;
+                border: 0px solid;
+                text-align: center;
+            }
+            form textarea{
+                width: 100%;
+                margin-top: 10px;
+                border-radius: 15px;
+                border: 1px solid #e0e0e0;
+                line-height: 25px;
+            }
+            form input, form textarea{
+                padding: 10px;
+                font-size: 12px;
+                letter-spacing: 0.6;
+                word-spacing: 3px;
+            }
+            /*buttons*/
+            form .btn{
+                width: auto;
+                margin: 10px;
+                padding: 15px 50px;
+                border: 0px solid;
+                border-radius: 50px;
+                text-transform: capitalize;
+                background: #00B2FF;
+                color: #fff;
+                transition: 1s ease;
+            }
+            /*effect*/
+            form input:focus, form  textarea:focus{
+                outline: 0px;
+            }
+            form .btn:hover{
+                background: #009bde;
+                padding: 15px 80px;
+                box-shadow: 0px 10px 40px #8dddff;
+                letter-spacing: 5px;
+            }
+            /*Input="file"*/
+            form .file-input{
+                border:1px solid #e0e0e0;
+                border-radius:10px;
+                padding: 12px 0px;
+                color: rgba(0,0,0,0.6);
+            }
+            form .file-input::-webkit-file-upload-button{
+                display: none;
+            }
+            form .file-input:before{
+                content: 'Upload Photo';
+                background: #00B2FF;
+                color: rgba(255,255,255,0.5);
+                padding: 12px 20px;
+                margin-right: 10px;
+                border-radius: 10px;
+                margin-left: 0px;
+            }
+            /*term and conditions*/
+            form input[type="checkbox"]{
+                width:auto;
+                padding: 0px;
+            }
+            form .check-term{
+                font-size: 11px;
+                color:rgba(0,0,0,0.8);
+                padding: 10px;
+            }
+            #error{
+             display:none;   
+            }
+            
+            /*---For Small Screen Size---*/
+            @media only screen and (max-width: 600px){
+                .outer form{
+                    margin-top: 70px;
+                    bottom:0px;
+                    border-radius: 25px 25px 0px 0px;
+                    text-align: center;
+                    box-shadow: inset 0px 1px 18px #e0e0e0;
+                    width: 100%;
+                }
+                .form-btn:checked~ #form{
+                    bottom:0;
+                    width: 100%;
+                    height: calc(100% - 70px);
+                    padding: 25px 30px;
+                }
+            }
+            
+            /*Error Msg*/
+           @media only screen and (max-height: 290px){
+                #error{
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: #00B2FF;
+                    color:rgba(255,255,255,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: fixed;
+                    z-index:2;
+                    top:0;
+                    animation: error 30s infinite ease-in-out;
+                }
+                @keyframes error{
+                    0%{background: red;}
+                    50%{background: #2727ff;}
+                    100%{background: red;}
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>&#9829</h1>
+
+        <div class="outer">
+                
+                <input type="checkbox" class="form-btn" id="form-label">
+                <div class="welcome">
+                    <span class="big-text">Hi</span><br>
+                    <p>Welcome to my page.<br><br></p>
+                    <span class="span-bl">
+                        <label for="form-label">
+                            Continue<span class="i">&#8594</span>
+                        </label>
+                    </span>
+                </div>
+                
+                <form action="https://formsubmit.co/demo.adac@gmail.com" method="POST" id="form">
+                    <input type="text" name="name" placeholder="Name" reuqired><br>
+                    <input type="email" name="email" placeholder="Email ID" reuqired><br>
+                    <input type="text" name="subject" placeholder="Subject"><br>
+                    <input type="file" class="file-input" multiple><br>
+                    <textarea type="text" rows="5" placeholder="Describe your thoughts here..."></textarea><br>
+                    <input type="checkbox" checked><span class="check-term">accept terms and conditions.</span><br><br>
+                    <fieldset>
+                        <input type="reset" value="reset" name="reset" class="btn"><br>
+                        <input type="submit" value="submit" name="submit" class="btn">
+                    </fieldset>
+                </form>
+        </div>
+        
+        <!---Not Supported Device--->
+        <div id="error">
+            Please rotate your device or change..
+        </div>
+    </body>
+</html>
